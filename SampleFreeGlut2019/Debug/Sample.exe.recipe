@@ -1,6 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project>
+<<<<<<< HEAD
   <ProjectOutputs>C:\Users\Administrator\Desktop\project6\SampleFreeGlut2019\Debug\Sample.exe</ProjectOutputs>
+=======
+  <ProjectOutputs>C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\Debug\Sample.exe</ProjectOutputs>
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
   <ContentFiles></ContentFiles>
   <SatelliteDlls></SatelliteDlls>
   <NonRecipeFileRefs></NonRecipeFileRefs>

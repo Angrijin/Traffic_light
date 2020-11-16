@@ -1,4 +1,5 @@
 ﻿  sample.cpp
+<<<<<<< HEAD
 C:\Users\Administrator\Desktop\project6\SampleFreeGlut2019\sample.cpp(437,10): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
 C:\Users\Administrator\Desktop\project6\SampleFreeGlut2019\sample.cpp(438,36): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
 C:\Users\Administrator\Desktop\project6\SampleFreeGlut2019\sample.cpp(439,10): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
@@ -20,3 +21,26 @@ C:\Users\Administrator\Desktop\project6\SampleFreeGlut2019\sample.cpp(1257,24): 
 C:\Users\Administrator\Desktop\project6\SampleFreeGlut2019\sample.cpp(1258,29): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
 sample.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/INCREMENTAL:NO”规范)
   Sample.vcxproj -> C:\Users\Administrator\Desktop\project6\SampleFreeGlut2019\.\Debug\Sample.exe
+=======
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(433,60): warning C4305: “参数”: 从“double”到“float”截断
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(459,112): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(459,85): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(459,61): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(459,29): warning C4244: “参数”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(464,49): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(464,18): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(488,44): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(489,17): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(498,17): warning C4244: “参数”: 从“double”转换到“GLfloat”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(901,13): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(902,12): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(903,11): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(906,14): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(907,12): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(908,12): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(916,24): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(917,29): warning C4244: “=”: 从“double”转换到“float”，可能丢失数据
+C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\sample.cpp(1369,10): warning C4244: “初始化”: 从“double”转换到“float”，可能丢失数据
+sample.obj : warning LNK4075: 忽略“/EDITANDCONTINUE”(由于“/INCREMENTAL:NO”规范)
+  Sample.vcxproj -> C:\Users\Administrator\Desktop\project5\SampleFreeGlut2019\.\Debug\Sample.exe
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb

@@ -12,12 +12,19 @@
 #endif
 
 #include <GL/gl.h>
+<<<<<<< HEAD
 #include "glslprogram.h"
 #include "glslprogram.cpp"
+=======
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 #include <GL/glu.h>
 #include "glut.h"
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 //	This is a sample OpenGL / GLUT program
 //
 //	The objective is to draw a 3d object and change the color of the axes
@@ -45,7 +52,11 @@
 
 // title of these windows:
 
+<<<<<<< HEAD
 const char* WINDOWTITLE = { "Project #5 -- Hongjin Wang" };
+=======
+const char* WINDOWTITLE = { "Project #4 - Hongjin Wang" };
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 const char* GLUITITLE = { "User Interface Window" };
 
 
@@ -175,11 +186,18 @@ const GLfloat FOGEND = { 4. };
 
 int		ActiveButton;			// current button that is down
 GLuint	AxesList;				// list to hold the axes
+<<<<<<< HEAD
 GLuint	ObjList;				// object display list
 int		AxesOn;					// != 0 means to draw the axes
 int		DebugOn;				// != 0 means to print debugging info
 int		DepthCueOn;				// != 0 means to use intensity depth cueing
 GLuint	BoxList;				// object display list
+=======
+int		AxesOn;					// != 0 means to draw the axes
+int		DebugOn;				// != 0 means to print debugging info
+int		DepthCueOn;				// != 0 means to use intensity depth cueing
+GLuint	EarthList;				// object display list
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 int		MainWindow;				// window id for main graphics window
 float	Scale;					// scaling factor
 int		WhichColor;				// index into Colors[ ]
@@ -187,6 +205,19 @@ int		WhichProjection;		// ORTHO or PERSP
 int		Xmouse, Ymouse;			// mouse values
 float	Xrot, Yrot;				// rotation angles in degrees
 
+<<<<<<< HEAD
+=======
+GLuint WorldTex;
+float White[] = { 1., 1., 1., 1. };
+bool Freeze = 0;
+bool Light0On = 1;
+bool Light1On = 1;
+bool Light2On = 1;
+
+float angle = 0;
+float Time;
+#define MS_PER_CYCLE 5000
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 
 struct point {
 	float x, y, z;		// coordinates
@@ -205,6 +236,7 @@ struct point* PtsPointer(int lat, int lng)
 	if (lng > NumLngs - 1)	lng -= (NumLngs - 1);
 	return &Pts[NumLngs * lat + lng];
 }
+<<<<<<< HEAD
 //added into program
 GLSLProgram* Pattern;
 int MS_PER_CYCLE = 50000;
@@ -213,6 +245,8 @@ bool Freeze = 1;
 
 bool AniFrag = 1;
 bool AniVer = 1;
+=======
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 
 // function prototypes:
 
@@ -236,8 +270,14 @@ void	MouseMotion(int, int);
 void	Reset();
 void	Resize(int, int);
 void	Visibility(int);
+<<<<<<< HEAD
 
 void	Axes(float);
+=======
+void	Axes(float length);
+
+unsigned char* BmpToTexture(char*, int*, int*);
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 void			HsvRgb(float[3], float[3]);
 int				ReadInt(FILE*);
 short			ReadShort(FILE*);
@@ -245,6 +285,17 @@ void MjbSphere(float, int, int);
 void DrawPoint(struct point*);
 float* Array3(float, float, float);
 float* MulArray3(float factor, float array0[3]);
+<<<<<<< HEAD
+=======
+void SetSpotLight(int, float, float, float, float, float, float, float, float, float);
+void SetPointLight(int, float, float, float, float, float, float);
+void
+SetMaterial(float, float, float, float);
+
+
+
+
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 // main program:
 
 int
@@ -305,9 +356,17 @@ Animate()
 	// for Display( ) to find:
 
 	// force a call to Display( ) next time it is convenient:
+<<<<<<< HEAD
 	int ms = glutGet(GLUT_ELAPSED_TIME);
 	ms %= MS_PER_CYCLE;
 	Time = (float)ms / (float)(MS_PER_CYCLE - 1)*2;
+=======
+	//angle = angle + M_PI / 4;
+
+	int ms = glutGet(GLUT_ELAPSED_TIME);
+	ms %= MS_PER_CYCLE;
+	Time = (float)ms / (float)(MS_PER_CYCLE - 1);
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 
 	glutSetWindow(MainWindow);
 	glutPostRedisplay();
@@ -339,7 +398,11 @@ Display()
 
 	// specify shading to be flat:
 
+<<<<<<< HEAD
 	glShadeModel(GL_FLAT);
+=======
+	glShadeModel(GL_SMOOTH);
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 
 
 	// set the viewport to a square centered in the window:
@@ -373,7 +436,11 @@ Display()
 
 	// set the eye position, look-at position, and up-vector:
 
+<<<<<<< HEAD
 	gluLookAt(0., 0., 3., 0., 0., 0., 0., 1., 0.);
+=======
+	gluLookAt(-3., 3.5, 6., 0., 0., 0., 0., 1., 0.);
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 
 
 	// rotate the scene:
@@ -419,6 +486,7 @@ Display()
 
 	glEnable(GL_NORMALIZE);
 
+<<<<<<< HEAD
 
 	// draw the current object:
 	float S0, T0;
@@ -486,6 +554,93 @@ Display()
 	//glDisable( GL_DEPTH_TEST );
 	//glColor3f( 0., 1., 1. );
 	//DoRasterString( 0., 1., 0., "Text That Moves" );
+=======
+	glLightModelfv(GL_LIGHT_MODEL_AMBIENT, MulArray3(.2, White));
+	glLightModeli(GL_LIGHT_MODEL_TWO_SIDE, GL_FALSE);
+	// draw the current object:
+	//light 0
+	SetPointLight(GL_LIGHT0, 0., 3., 0., 1., 1., 1.);
+	glPushMatrix();
+	glDisable(GL_LIGHTING);
+	glColor3f(1., 1., 1.);
+	glTranslatef(0., 3., 0.);
+	glutSolidSphere(0.1, 50, 50);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	//light 1
+	SetPointLight(GL_LIGHT1, 0., -3., 0., 1., 0., 0.);
+	glPushMatrix();
+	glDisable(GL_LIGHTING);
+	glColor3f(1, 0.0, 0.0);
+	glTranslatef(0., -3., 0.);
+	glutSolidSphere(0.1, 50, 50);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	//light 2
+	SetSpotLight(GL_LIGHT2, 3. * cos(2 * M_PI * Time),  0., 3. * sin(2 * M_PI * Time), -cos(2 * M_PI * Time), 0., -sin(2 * M_PI * Time), 1., 1., 0.);
+	glPushMatrix();
+	glDisable(GL_LIGHTING);
+	glColor3f(1., 1., 0.);
+
+	glTranslatef(3. * cos(2 * M_PI * Time), 0., 3. * sin(2 * M_PI * Time));
+
+	glutSolidSphere(0.1, 50, 50);
+	glEnd();
+	glEnable(GL_LIGHTING);
+	glPopMatrix();
+
+	if (Light0On == 1)
+		glEnable(GL_LIGHT0);
+	else
+		glDisable(GL_LIGHT0);
+
+	if (Light1On == 1)
+		glEnable(GL_LIGHT1);
+	else
+		glDisable(GL_LIGHT1);
+
+	if (Light2On == 1)
+		glEnable(GL_LIGHT2);
+	else
+		glDisable(GL_LIGHT2);
+	//earth
+	glPushMatrix();
+	glShadeModel(GL_SMOOTH);
+	glTranslatef(0., 0., sin(2 * M_PI * Time) * 2);
+	glRotatef(360. * Time, 0., 1., 0.);
+	SetMaterial(1.0, 1.0, 1.0, 0.5);
+	glCallList(EarthList);
+	glPopMatrix();
+
+	//torus
+	glPushMatrix();
+	glShadeModel(GL_SMOOTH);
+	glTranslatef(0., 0., 3.);
+	glRotatef(360. * Time, 0., 0., 1.);
+	SetMaterial(0.0, 0.5, 0.0, 100.);
+
+	glutSolidTorus(0.5, 3., 10, 20);
+	glPopMatrix();
+
+
+
+	//sphere
+	glPushMatrix();
+	glShadeModel(GL_FLAT);
+
+	glTranslatef(-4., 3., -2.);
+	//SetMaterial(0.2, 0., 0.8, 0.0);
+	SetMaterial(0.0, 0.5, 0.0, 0.);
+
+	//glColor3f(0.2, 0., 0.8);
+	glutSolidSphere(0.75, 50, 50);
+	glPopMatrix();
+	// draw some gratuitous text that just rotates on top of the scene:
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 
 
 	// draw some gratuitous text that is fixed on the screen:
@@ -504,8 +659,14 @@ Display()
 	gluOrtho2D(0., 100., 0., 100.);
 	glMatrixMode(GL_MODELVIEW);
 	glLoadIdentity();
+<<<<<<< HEAD
 	glColor3f(1., 1., 1.);
 	DoRasterString(5., 5., 0., "Project #5");
+=======
+	glDisable(GL_LIGHTING);
+	glColor3f(1., 1., 1.);
+	DoRasterString(5., 5., 0., "Project #4");
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 
 
 	// swap the double-buffered framebuffers:
@@ -700,6 +861,11 @@ InitMenus()
 void
 InitGraphics()
 {
+<<<<<<< HEAD
+=======
+	unsigned char* Texture;
+	int Width, Height;
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 	// request the display modes:
 	// ask for red-green-blue-alpha color, double-buffering, and z-buffering:
 
@@ -761,8 +927,29 @@ InitGraphics()
 	glutTimerFunc(-1, NULL, 0);
 	glutIdleFunc(Animate);
 
+<<<<<<< HEAD
 	// init glew (a window must be open to do this):
 
+=======
+	Texture = BmpToTexture("it.bmp", &Width, &Height);
+	if (Texture == NULL || Width != 1024 || Height != 512)
+	{
+		printf("Wrong Reading BMP File!");
+		exit(1);
+	}
+
+	glPixelStorei(GL_UNPACK_ALIGNMENT, 1);
+	glGenTextures(1, &WorldTex);
+	glBindTexture(GL_TEXTURE_2D, WorldTex);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+	glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_MODULATE);
+	glTexImage2D(GL_TEXTURE_2D, 0, 3, Width, Height, 0, GL_RGB, GL_UNSIGNED_BYTE, Texture);
+
+	// init glew (a window must be open to do this):
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 #ifdef WIN32
 	GLenum err = glewInit();
 	if (err != GLEW_OK)
@@ -773,6 +960,7 @@ InitGraphics()
 		fprintf(stderr, "GLEW initialized OK\n");
 	fprintf(stderr, "Status: Using GLEW %s\n", glewGetString(GLEW_VERSION));
 #endif
+<<<<<<< HEAD
 	Pattern = new GLSLProgram();
 	bool valid = Pattern->Create("pattern.vert", "pattern.frag");
 	if (!valid)
@@ -786,6 +974,12 @@ InitGraphics()
 	}
 	Pattern->SetVerbose(false);
 }
+=======
+
+}
+
+
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 // initialize the display lists that will not change:
 // (a display list is a way to store opengl commands in
 //  memory so that they can be played back efficiently at a later time
@@ -794,11 +988,18 @@ InitGraphics()
 void
 InitLists()
 {
+<<<<<<< HEAD
 
+=======
+	float dx = BOXSIZE / 2.f;
+	float dy = BOXSIZE / 2.f;
+	float dz = BOXSIZE / 2.f;
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 	glutSetWindow(MainWindow);
 
 	// create the object:
 
+<<<<<<< HEAD
 	ObjList = glGenLists(1);
 	glNewList(ObjList, GL_COMPILE);
 	MjbSphere(3, 100, 100);
@@ -806,17 +1007,190 @@ InitLists()
 
 	glEndList();
 
+=======
+	EarthList = glGenLists(1);
+	glNewList(EarthList, GL_COMPILE);
+
+	glEnable(GL_TEXTURE_2D);
+
+	glBindTexture(GL_TEXTURE_2D, WorldTex);
+	glColor3f(1., 1., 1.);
+	MjbSphere(1., 50, 50);
+
+	glDisable(GL_TEXTURE_2D);
+
+	glEndList();
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 
 	// create the axes:
 
 	AxesList = glGenLists(1);
 	glNewList(AxesList, GL_COMPILE);
+<<<<<<< HEAD
 	glLineWidth(AXES_WIDTH);
 	Axes(1.5);
 	glLineWidth(1.);
 	glEndList();
 }
 
+=======
+	glDisable(GL_LIGHTING);
+	glLineWidth(AXES_WIDTH);
+	Axes(1.5);
+	glLineWidth(1.);
+	glEnable(GL_LIGHTING);
+	glEndList();
+}
+
+void DrawPoint(struct point* p)
+{
+	glNormal3f(p->nx, p->ny, p->nz);
+	glTexCoord2f(p->s, p->t);
+	glVertex3f(p->x, p->y, p->z);
+}
+
+void MjbSphere(float radius, int slices, int stacks)
+{
+	struct point top, bot;		// top, bottom points
+	struct point* p;
+
+	// set the globals:
+
+	NumLngs = slices;
+	NumLats = stacks;
+
+	if (NumLngs < 3)
+		NumLngs = 3;
+
+	if (NumLats < 3)
+		NumLats = 3;
+
+
+	// allocate the point data structure:
+
+	Pts = new struct point[NumLngs * NumLats];
+
+
+	// fill the Pts structure:
+
+	for (int ilat = 0; ilat < NumLats; ilat++)
+	{
+		float lat = -M_PI / 2. + M_PI * (float)ilat / (float)(NumLats - 1);
+		float xz = cos(lat);
+		float y = sin(lat);
+		for (int ilng = 0; ilng < NumLngs; ilng++)
+		{
+			float lng = -M_PI + 2. * M_PI * (float)ilng / (float)(NumLngs - 1);
+			float x = xz * cos(lng);
+			float z = -xz * sin(lng);
+			p = PtsPointer(ilat, ilng);
+			p->x = radius * x;
+			p->y = radius * y;
+			p->z = radius * z;
+			p->nx = x;
+			p->ny = y;
+			p->nz = z;
+			p->s = (lng + M_PI) / (2. * M_PI);
+			p->t = (lat + M_PI / 2.) / M_PI;
+		}
+	}
+
+	top.x = 0.;		top.y = radius;	top.z = 0.;
+	top.nx = 0.;		top.ny = 1.;		top.nz = 0.;
+	top.s = 0.;		top.t = 1.;
+
+	bot.x = 0.;		bot.y = -radius;	bot.z = 0.;
+	bot.nx = 0.;		bot.ny = -1.;		bot.nz = 0.;
+	bot.s = 0.;		bot.t = 0.;
+
+
+	// connect the north pole to the latitude NumLats-2:
+
+	glBegin(GL_QUADS);
+	for (int ilng = 0; ilng < NumLngs - 1; ilng++)
+	{
+		p = PtsPointer(NumLats - 1, ilng);
+		DrawPoint(p);
+
+		p = PtsPointer(NumLats - 2, ilng);
+		DrawPoint(p);
+
+		p = PtsPointer(NumLats - 2, ilng + 1);
+		DrawPoint(p);
+
+		p = PtsPointer(NumLats - 1, ilng + 1);
+		DrawPoint(p);
+	}
+	glEnd();
+
+	// connect the south pole to the latitude 1:
+
+	glBegin(GL_QUADS);
+	for (int ilng = 0; ilng < NumLngs - 1; ilng++)
+	{
+		p = PtsPointer(0, ilng);
+		DrawPoint(p);
+
+		p = PtsPointer(0, ilng + 1);
+		DrawPoint(p);
+
+		p = PtsPointer(1, ilng + 1);
+		DrawPoint(p);
+
+		p = PtsPointer(1, ilng);
+		DrawPoint(p);
+	}
+	glEnd();
+
+
+	// connect the other 4-sided polygons:
+
+	glBegin(GL_QUADS);
+	for (int ilat = 2; ilat < NumLats - 1; ilat++)
+	{
+		for (int ilng = 0; ilng < NumLngs - 1; ilng++)
+		{
+			p = PtsPointer(ilat - 1, ilng);
+			DrawPoint(p);
+
+			p = PtsPointer(ilat - 1, ilng + 1);
+			DrawPoint(p);
+
+			p = PtsPointer(ilat, ilng + 1);
+			DrawPoint(p);
+
+			p = PtsPointer(ilat, ilng);
+			DrawPoint(p);
+		}
+	}
+	glEnd();
+
+	delete[] Pts;
+	Pts = NULL;
+}
+
+// utility to create an array from 3 separate values:
+float* Array3(float a, float b, float c)
+{
+	static float array[4];
+	array[0] = a;
+	array[1] = b;
+	array[2] = c;
+	array[3] = 1.;
+	return array;
+}
+// utility to create an array from a multiplier and an array:
+float* MulArray3(float factor, float array0[3])
+{
+	static float array[4];
+	array[0] = factor * array0[0];
+	array[1] = factor * array0[1];
+	array[2] = factor * array0[2];
+	array[3] = 1.;
+	return array;
+}
+
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 // the keyboard callback:
 
 void
@@ -844,6 +1218,7 @@ Keyboard(unsigned char c, int x, int y)
 		break;				// happy compiler
 
 	case 'f':
+<<<<<<< HEAD
 		AniVer = 0;
 		AniFrag = 0;
 		break;
@@ -861,6 +1236,26 @@ Keyboard(unsigned char c, int x, int y)
 		AniVer = 1;
 		AniFrag = 1;
 		break;
+=======
+	case 'F':
+		Freeze = !Freeze;
+		if (Freeze)
+			glutIdleFunc(NULL);
+		else
+			glutIdleFunc(Animate);
+		break;
+
+	case '0':
+		Light0On = !Light0On;
+		break;
+	case '1':
+		Light1On = !Light1On;
+		break;
+	case '2':
+		Light2On = !Light2On;
+		break;
+
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 	default:
 		fprintf(stderr, "Don't know what to do with keyboard hit: '%c' (0x%0x)\n", c, c);
 	}
@@ -969,6 +1364,13 @@ Reset()
 	WhichColor = WHITE;
 	WhichProjection = PERSP;
 	Xrot = Yrot = 0.;
+<<<<<<< HEAD
+=======
+	Freeze = 1;
+	Light0On = 1;
+	Light1On = 1;
+	Light2On = 1;
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
 }
 
 
@@ -1205,6 +1607,7 @@ HsvRgb(float hsv[3], float rgb[3])
 	rgb[2] = b;
 }
 
+<<<<<<< HEAD
 
 void DrawPoint(struct point* p)
 {
@@ -1353,3 +1756,187 @@ float* MulArray3(float factor, float array0[3])
 	array[3] = 1.;
 	return array;
 }
+=======
+struct bmfh
+{
+	short bfType;
+	int bfSize;
+	short bfReserved1;
+	short bfReserved2;
+	int bfOffBits;
+} FileHeader;
+
+struct bmih
+{
+	int biSize;
+	int biWidth;
+	int biHeight;
+	short biPlanes;
+	short biBitCount;
+	int biCompression;
+	int biSizeImage;
+	int biXPelsPerMeter;
+	int biYPelsPerMeter;
+	int biClrUsed;
+	int biClrImportant;
+} InfoHeader;
+
+const int birgb = { 0 };
+
+unsigned char*
+BmpToTexture(char* filename, int* width, int* height)
+{
+	FILE* fp = fopen(filename, "rb");
+	if (fp == NULL)
+	{
+		fprintf(stderr, "Cannot open Bmp file '%s'\n", filename);
+		return NULL;
+	}
+
+	FileHeader.bfType = ReadShort(fp);
+
+
+	// if bfType is not 0x4d42, the file is not a bmp:
+
+	if (FileHeader.bfType != 0x4d42)
+	{
+		fprintf(stderr, "File '%s' is the wrong type of file: 0x%0x\n", filename, FileHeader.bfType);
+		fclose(fp);
+		return NULL;
+	}
+
+	FileHeader.bfSize = ReadInt(fp);
+	FileHeader.bfReserved1 = ReadShort(fp);
+	FileHeader.bfReserved2 = ReadShort(fp);
+	FileHeader.bfOffBits = ReadInt(fp);
+
+	InfoHeader.biSize = ReadInt(fp);
+	InfoHeader.biWidth = ReadInt(fp);
+	InfoHeader.biHeight = ReadInt(fp);
+
+	int nums = InfoHeader.biWidth;
+	int numt = InfoHeader.biHeight;
+
+	InfoHeader.biPlanes = ReadShort(fp);
+	InfoHeader.biBitCount = ReadShort(fp);
+	InfoHeader.biCompression = ReadInt(fp);
+	InfoHeader.biSizeImage = ReadInt(fp);
+	InfoHeader.biXPelsPerMeter = ReadInt(fp);
+	InfoHeader.biYPelsPerMeter = ReadInt(fp);
+	InfoHeader.biClrUsed = ReadInt(fp);
+	InfoHeader.biClrImportant = ReadInt(fp);
+
+	fprintf(stderr, "Image size in file '%s' is: %d x %d\n", filename, nums, numt);
+
+	unsigned char* texture = new unsigned char[3 * nums * numt];
+	if (texture == NULL)
+	{
+		fprintf(stderr, "Cannot allocate the texture array!\b");
+		return NULL;
+	}
+
+	// extra padding bytes:
+
+	int numextra = 4 * (((3 * InfoHeader.biWidth) + 3) / 4) - 3 * InfoHeader.biWidth;
+
+	// we do not support compression:
+
+	if (InfoHeader.biCompression != birgb)
+	{
+		fprintf(stderr, "Image file '%s' has the wrong type of image compression: %d\n", filename, InfoHeader.biCompression);
+		fclose(fp);
+		return NULL;
+	}
+
+	rewind(fp);
+	fseek(fp, 14 + 40, SEEK_SET);
+
+	if (InfoHeader.biBitCount == 24)
+	{
+		unsigned char* tp = texture;
+		for (int t = 0; t < numt; t++)
+		{
+			for (int s = 0; s < nums; s++, tp += 3)
+			{
+				*(tp + 2) = fgetc(fp);		// b
+				*(tp + 1) = fgetc(fp);		// g
+				*(tp + 0) = fgetc(fp);		// r
+			}
+
+			for (int e = 0; e < numextra; e++)
+			{
+				fgetc(fp);
+			}
+		}
+	}
+
+	fclose(fp);
+
+	*width = nums;
+	*height = numt;
+	return texture;
+}
+
+int ReadInt(FILE* fp)
+{
+	unsigned char b3, b2, b1, b0;
+	b0 = fgetc(fp);
+	b1 = fgetc(fp);
+	b2 = fgetc(fp);
+	b3 = fgetc(fp);
+	return (b3 << 24) | (b2 << 16) | (b1 << 8) | b0;
+}
+
+short
+ReadShort(FILE* fp)
+{
+	unsigned char b1, b0;
+	b0 = fgetc(fp);
+	b1 = fgetc(fp);
+	return (b1 << 8) | b0;
+}
+
+void
+SetMaterial(float r, float g, float b, float shininess)
+{
+	glMaterialfv(GL_BACK, GL_EMISSION, Array3(0., 0., 0.));
+	glMaterialfv(GL_BACK, GL_AMBIENT, MulArray3(.4f, White));
+	glMaterialfv(GL_BACK, GL_DIFFUSE, MulArray3(1., White));
+	glMaterialfv(GL_BACK, GL_SPECULAR, Array3(0., 0., 0.));
+	glMaterialf(GL_BACK, GL_SHININESS, 2.f);
+	glMaterialfv(GL_FRONT, GL_EMISSION, Array3(0., 0., 0.));
+	glMaterialfv(GL_FRONT, GL_AMBIENT, Array3(r, g, b));
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, Array3(r, g, b));
+	glMaterialfv(GL_FRONT, GL_SPECULAR, MulArray3(.8f, White));
+	glMaterialf(GL_FRONT, GL_SHININESS, shininess);
+}
+
+void
+SetPointLight(int ilight, float x, float y, float z, float r, float g, float b)
+{
+	glLightfv(ilight, GL_POSITION, Array3(x, y, z));
+	glLightfv(ilight, GL_AMBIENT, Array3(0., 0., 0.));
+	glLightfv(ilight, GL_DIFFUSE, Array3(r, g, b));
+	glLightfv(ilight, GL_SPECULAR, Array3(r, g, b));
+	glLightf(ilight, GL_CONSTANT_ATTENUATION, 1.);
+	glLightf(ilight, GL_LINEAR_ATTENUATION, 0.);
+	glLightf(ilight, GL_QUADRATIC_ATTENUATION, 0.);
+	glEnable(ilight);
+}
+
+void
+SetSpotLight(int ilight, float x, float y, float z, float xdir, float ydir, float zdir, float r, float g, float b)
+{
+	glLightfv(ilight, GL_POSITION, Array3(x, y, z));
+	glLightfv(ilight, GL_SPOT_DIRECTION, Array3(xdir, ydir, zdir));
+	glLightf(ilight, GL_SPOT_EXPONENT, 1.);
+	glLightf(ilight, GL_SPOT_CUTOFF, 45.);
+	glLightfv(ilight, GL_AMBIENT, Array3(0., 0., 0.));
+	glLightfv(ilight, GL_DIFFUSE, Array3(r, g, b));
+	glLightfv(ilight, GL_SPECULAR, Array3(r, g, b));
+	glLightf(ilight, GL_CONSTANT_ATTENUATION, 1.);
+	glLightf(ilight, GL_LINEAR_ATTENUATION, 0.);
+	glLightf(ilight, GL_QUADRATIC_ATTENUATION, 0.);
+	glEnable(ilight);
+}
+>>>>>>> f4a148f1491476e575b2a69b8bf22c90519813fb
