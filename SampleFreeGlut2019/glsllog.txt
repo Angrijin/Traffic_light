@@ -1,0 +1,6 @@
+
+0(23) : error C7565: assignment to varying 'oTexcoord'
+0(32) : error C7565: assignment to varying 'oNormal'
+0(33) : error C7565: assignment to varying 'oLightDir'
+0(34) : error C7565: assignment to varying 'oEyePosDir'
+
